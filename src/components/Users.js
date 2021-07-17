@@ -16,6 +16,12 @@ class Users extends Component {
       ({ showUsers: !curState.showUsers }));
   }
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error('No users provided!');
+    }
+  }
+
   render() {
     const usersList = (
       <ul>
